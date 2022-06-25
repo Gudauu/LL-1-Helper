@@ -1,0 +1,16 @@
+1		Z is start symbol.
+2		Z produces d$
+3		Z produces XYZ$
+4		Y produces @
+5		Y produces c
+6		X produces Y
+7		X produces a
+8		d is terminal.
+9		c is terminal.
+10		a is terminal.
+11		@ is terminal.
+		Iteration finished. No more changes.
+12		First set of Z:d 
+13		First set of Y:@ c 
+14		Y is nullable.
+15		First set of X:a 

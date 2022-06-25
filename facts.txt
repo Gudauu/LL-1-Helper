@@ -1,0 +1,17 @@
+
+
+start Z
+
+
+Z > d
+Z >   XYZ
+Y > @
+Y > c
+X > Y
+X > a
+
+
+{d,c,a,@}
+
+
+
