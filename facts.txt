@@ -1,17 +1,20 @@
 
 
-start Z
+start S
 
+S > E
+T > Ft
+E > Te
+F > i
+t > *Ft
+F > n
+e > +Te
+t > /Ft
+F > (E)
+e > -Te
+t > @
+e > @
 
-Z > d
-Z >   XYZ
-Y > @
-Y > c
-X > Y
-X > a
-
-
-{d,c,a,@}
-
+{i,*,n,+,/,(,),-,@}
 
 
