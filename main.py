@@ -1,9 +1,9 @@
-from doctest import master
 import tkinter
 import tkinter.messagebox
 import customtkinter
 import sys
 from icecream import ic
+#from more_itertools import first
 from sqlalchemy import false
 from tkinter import scrolledtext
 from tabulate import tabulate
@@ -95,23 +95,23 @@ class GUI(customtkinter.CTk):
 
         # ============ frame_right ============
 
-        self.frame_progress = customtkinter.CTkFrame(master=self.frame_right,
-                                                 width=GUI.WIDTH/2,
-                                                 height=GUI.HEIGHT/2,
-                                                 fg_color=GUI.VERY_DARK,
-                                                 corner_radius=15)
-        self.frame_progress.place(relx=0.5, rely=0.07, anchor=tkinter.N)
+        # self.frame_progress = customtkinter.CTkFrame(master=self.frame_right,
+        #                                          width=GUI.WIDTH/2,
+        #                                          height=GUI.HEIGHT*5/6,
+        #                                          fg_color=GUI.VERY_DARK,
+        #                                          corner_radius=15)
+        # self.frame_progress.place(relx=0.5, rely=0.07, anchor=tkinter.N)
 
 
         # ============ frame_right -> frame_info ============
         
         
         
-        self.progress_text = scrolledtext.ScrolledText(master = self.frame_progress,
+        self.progress_text = scrolledtext.ScrolledText(master = self.frame_right,
                                             width = 38, #int(GUI.WIDTH/2)-20, 
-                                            height = 14, #int(GUI.HEIGHT/2)-20,
+                                            height = 24, #int(GUI.HEIGHT/2)-20,
                                             fg = ("white"),
-                                            bg = GUI.VERY_DARK,
+                                            bg = GUI.MAIN_GREY,
                                             bd = 0,
                                             border = None,
                                             wrap = tkinter.WORD)
@@ -331,6 +331,8 @@ class GUI(customtkinter.CTk):
             self.nullable[t] = False
         for t in self.terminal_list:
             self.nullable[t] = False
+        self.nullable['@'] = True
+
             
         self.ofile.close()
         with open("rules.txt",'r') as rulefile:
@@ -430,7 +432,13 @@ class GUI(customtkinter.CTk):
         self.ofile.close()
         self.progress_text.configure(state='disabled')
 
-                        
+    def get_basic_rule(self,num) -> str:
+        for nt in self.basic_rules:
+            for rule in self.basic_rules[nt]:
+                if rule[0] == num:
+                    return str(rule[1])
+        return " "        
+
     def construct_table(self) -> bool:
         table = dict()
         ## ini
@@ -446,7 +454,7 @@ class GUI(customtkinter.CTk):
                 while i < len(rule_cont):
                     letter = rule_cont[i]
                     for t in self.first[letter]:
-                        if rule_num not in table[(nt,t)]:
+                        if rule_num not in table[(nt,t)] and t != '@':
                             table[(nt,t)].append(rule_num)
                     if not self.nullable[letter]:
                         break
@@ -454,11 +462,100 @@ class GUI(customtkinter.CTk):
                 ## follow
                 if i == len(rule_cont):
                     for t in list(self.follow[nt]):
-                        if rule_num not in table[(nt,t)]:
+                        if rule_num not in table[(nt,t)] and t != '@':
                             table[(nt,t)].append(rule_num)
+
         
-        ic(table)
-        self.table = []
+        copy_tlist = self.terminal_list.copy()
+        copy_tlist.remove("@")
+
+        max_col = 3
+        divided_t_list = []
+        cur_nt_list = []
+        i = 0
+        while i< len(copy_tlist):
+            cur_nt_list.append(copy_tlist[i])
+            i += 1
+            if i%max_col == 0 or i == len(copy_tlist):
+                divided_t_list.append(cur_nt_list)
+                cur_nt_list = []
+                
+        
+        self.ofile = open("rules.txt","a")
+        self.progress_text.configure(state='normal')
+
+
+        break_line = "_"*38
+
+        self.ofile.write("\n\n\tFinal table:\n")
+        self.progress_text.insert(tkinter.END,"\n\n\tFinal table:\n"+break_line+"\n") 
+
+        for t_list in divided_t_list:
+            self.table = []
+            first_list = [" "]
+            for t in t_list:
+                first_list.append(t)
+            self.table.append(first_list)
+            for nt in self.non_terminal_list:
+                cur_nt_list = [nt]
+                for t in t_list:
+                    if len(table[(nt,t)])==0:
+                        cur_nt_list.append("")
+                    else:
+                        str_nums = ''
+                        for i in range(len(table[(nt,t)])-1):
+                            str_nums += str(table[(nt,t)][i])
+                            str_nums += ','
+                        str_nums += str(table[(nt,t)][-1])
+                        cur_nt_list.append(str_nums)
+                self.table.append(cur_nt_list)
+            # start outputing 
+
+            self.ofile.write(tabulate(self.table,tablefmt="fancy_grid"))
+            self.ofile.write('\n\n')
+
+            
+            for line in self.table:
+                new_result = ""
+                for element in line:
+                    new_result += element + '\t'
+                new_result += '\n'
+                self.progress_text.insert(tkinter.END,new_result) 
+            self.progress_text.insert(tkinter.END,'\n'+break_line+'\n') 
+
+
+        self.ofile.close()
+        self.progress_text.configure(state='disabled')
+
+
+
+
+        # self.table = []
+        # first_list = [" "]
+        # for t in self.terminal_list:
+        #     first_list.append(t)
+        # self.table.append(first_list)
+        # for nt in self.non_terminal_list:
+        #     cur_nt_list = [nt]
+        #     for t in self.terminal_list:
+        #         if len(table[(nt,t)])==0:
+        #             cur_nt_list.append("")
+        #         else:
+        #             str_nums = ''
+        #             for i in range(len(table[(nt,t)])-1):
+        #                 str_nums += str(table[(nt,t)][i])
+        #                 str_nums += ','
+        #             str_nums += str(table[(nt,t)][-1])
+        #             cur_nt_list.append(str_nums)
+        #     self.table.append(cur_nt_list)
+
+        
+        
+                        
+                        
+
+                    
+            
             
             
                       
