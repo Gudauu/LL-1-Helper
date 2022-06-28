@@ -1,271 +1,278 @@
-1	S is start symbol.
-2	S produces E$
+1	E is start symbol.
+2	S produces E
 3	T produces Ft
-4	E produces Te
+4	E produces Te$
 5	F produces i
 6	t produces *Ft
 7	F produces n
 8	e produces +Te
-9	t produces /Ft
-10	F produces (E)
-11	e produces -Te
-12	t produces @
+9	e produces -Te
+10	t produces /Ft
+11	t produces @
+12	F produces (E)
 13	e produces @
 14	i is terminal.
 15	* is terminal.
-16	n is terminal.
+16	/ is terminal.
 17	+ is terminal.
-18	/ is terminal.
-19	( is terminal.
-20	) is terminal.
-21	- is terminal.
-22	@ is terminal.
+18	- is terminal.
+19	@ is terminal.
+20	( is terminal.
+21	) is terminal.
+22	n is terminal.
 23	$ is terminal.
+24	F can be used to reduce others.
 
 	Iteration 1 using F
-24	T produces it
-25	T produces nt
-26	T produces (E)t
-27	t produces *it
-28	t produces *nt
-29	t produces *(E)t
-30	t produces /it
-31	t produces /nt
-32	t produces /(E)t
+25	T produces it
+26	T produces nt
+27	T produces (E)t
+28	t produces *it
+29	t produces *nt
+30	t produces *(E)t
+31	t produces /it
+32	t produces /nt
+33	t produces /(E)t
+34	t can be used to reduce others.
 
 	Iteration 2 using t
-33	T produces i
-34	T produces i*it
-35	T produces i*nt
-36	T produces i*(E)t
-37	T produces i/it
-38	T produces i/nt
-39	T produces i/(E)t
-40	T produces n
-41	T produces n*it
-42	T produces n*nt
-43	T produces n*(E)t
-44	T produces n/it
-45	T produces n/nt
-46	T produces n/(E)t
-47	T produces (E)
-48	T produces (E)*it
-49	T produces (E)*nt
-50	T produces (E)*(E)t
-51	T produces (E)/it
-52	T produces (E)/nt
-53	T produces (E)/(E)t
+35	T produces i
+36	T produces i*it
+37	T produces i*nt
+38	T produces i*(E)t
+39	T produces i/it
+40	T produces i/nt
+41	T produces i/(E)t
+42	T produces n
+43	T produces n*it
+44	T produces n*nt
+45	T produces n*(E)t
+46	T produces n/it
+47	T produces n/nt
+48	T produces n/(E)t
+49	T produces (E)
+50	T produces (E)*it
+51	T produces (E)*nt
+52	T produces (E)*(E)t
+53	T produces (E)/it
+54	T produces (E)/nt
+55	T produces (E)/(E)t
+56	e can be used to reduce others.
 
 	Iteration 3 using e
-54	E produces T+Te
-55	E produces T-Te
-56	E produces T
+57	E produces T+Te$
+58	E produces T-Te$
+59	E produces T$
+60	T can be used to reduce others.
 
 	Iteration 4 using T
-57	E produces i+ie
-58	E produces i*it+i*ite
-59	E produces i*nt+i*nte
-60	E produces i*(E)t+i*(E)te
-61	E produces i/it+i/ite
-62	E produces i/nt+i/nte
-63	E produces i/(E)t+i/(E)te
-64	E produces n+ne
-65	E produces n*it+n*ite
-66	E produces n*nt+n*nte
-67	E produces n*(E)t+n*(E)te
-68	E produces n/it+n/ite
-69	E produces n/nt+n/nte
-70	E produces n/(E)t+n/(E)te
-71	E produces (E)+(E)e
-72	E produces (E)*it+(E)*ite
-73	E produces (E)*nt+(E)*nte
-74	E produces (E)*(E)t+(E)*(E)te
-75	E produces (E)/it+(E)/ite
-76	E produces (E)/nt+(E)/nte
-77	E produces (E)/(E)t+(E)/(E)te
-78	E produces i-ie
-79	E produces i*it-i*ite
-80	E produces i*nt-i*nte
-81	E produces i*(E)t-i*(E)te
-82	E produces i/it-i/ite
-83	E produces i/nt-i/nte
-84	E produces i/(E)t-i/(E)te
-85	E produces n-ne
-86	E produces n*it-n*ite
-87	E produces n*nt-n*nte
-88	E produces n*(E)t-n*(E)te
-89	E produces n/it-n/ite
-90	E produces n/nt-n/nte
-91	E produces n/(E)t-n/(E)te
-92	E produces (E)-(E)e
-93	E produces (E)*it-(E)*ite
-94	E produces (E)*nt-(E)*nte
-95	E produces (E)*(E)t-(E)*(E)te
-96	E produces (E)/it-(E)/ite
-97	E produces (E)/nt-(E)/nte
-98	E produces (E)/(E)t-(E)/(E)te
-99	E produces i
-100	E produces i*it
-101	E produces i*nt
-102	E produces i*(E)t
-103	E produces i/it
-104	E produces i/nt
-105	E produces i/(E)t
-106	E produces n
-107	E produces n*it
-108	E produces n*nt
-109	E produces n*(E)t
-110	E produces n/it
-111	E produces n/nt
-112	E produces n/(E)t
-113	E produces (E)
-114	E produces (E)*it
-115	E produces (E)*nt
-116	E produces (E)*(E)t
-117	E produces (E)/it
-118	E produces (E)/nt
-119	E produces (E)/(E)t
+61	E produces i+ie$
+62	E produces i*it+i*ite$
+63	E produces i*nt+i*nte$
+64	E produces i*(E)t+i*(E)te$
+65	E produces i/it+i/ite$
+66	E produces i/nt+i/nte$
+67	E produces i/(E)t+i/(E)te$
+68	E produces n+ne$
+69	E produces n*it+n*ite$
+70	E produces n*nt+n*nte$
+71	E produces n*(E)t+n*(E)te$
+72	E produces n/it+n/ite$
+73	E produces n/nt+n/nte$
+74	E produces n/(E)t+n/(E)te$
+75	E produces (E)+(E)e$
+76	E produces (E)*it+(E)*ite$
+77	E produces (E)*nt+(E)*nte$
+78	E produces (E)*(E)t+(E)*(E)te$
+79	E produces (E)/it+(E)/ite$
+80	E produces (E)/nt+(E)/nte$
+81	E produces (E)/(E)t+(E)/(E)te$
+82	E produces i-ie$
+83	E produces i*it-i*ite$
+84	E produces i*nt-i*nte$
+85	E produces i*(E)t-i*(E)te$
+86	E produces i/it-i/ite$
+87	E produces i/nt-i/nte$
+88	E produces i/(E)t-i/(E)te$
+89	E produces n-ne$
+90	E produces n*it-n*ite$
+91	E produces n*nt-n*nte$
+92	E produces n*(E)t-n*(E)te$
+93	E produces n/it-n/ite$
+94	E produces n/nt-n/nte$
+95	E produces n/(E)t-n/(E)te$
+96	E produces (E)-(E)e$
+97	E produces (E)*it-(E)*ite$
+98	E produces (E)*nt-(E)*nte$
+99	E produces (E)*(E)t-(E)*(E)te$
+100	E produces (E)/it-(E)/ite$
+101	E produces (E)/nt-(E)/nte$
+102	E produces (E)/(E)t-(E)/(E)te$
+103	E produces i$
+104	E produces i*it$
+105	E produces i*nt$
+106	E produces i*(E)t$
+107	E produces i/it$
+108	E produces i/nt$
+109	E produces i/(E)t$
+110	E produces n$
+111	E produces n*it$
+112	E produces n*nt$
+113	E produces n*(E)t$
+114	E produces n/it$
+115	E produces n/nt$
+116	E produces n/(E)t$
+117	E produces (E)$
+118	E produces (E)*it$
+119	E produces (E)*nt$
+120	E produces (E)*(E)t$
+121	E produces (E)/it$
+122	E produces (E)/nt$
+123	E produces (E)/(E)t$
+124	E can be used to reduce others.
 
 	Iteration 5 using E
-120	S produces i+ie$
-121	S produces i*it+i*ite$
-122	S produces i*nt+i*nte$
-123	S produces i*(E)t+i*(E)te$
-124	S produces i/it+i/ite$
-125	S produces i/nt+i/nte$
-126	S produces i/(E)t+i/(E)te$
-127	S produces n+ne$
-128	S produces n*it+n*ite$
-129	S produces n*nt+n*nte$
-130	S produces n*(E)t+n*(E)te$
-131	S produces n/it+n/ite$
-132	S produces n/nt+n/nte$
-133	S produces n/(E)t+n/(E)te$
-134	S produces (E)+(E)e$
-135	S produces (E)*it+(E)*ite$
-136	S produces (E)*nt+(E)*nte$
-137	S produces (E)*(E)t+(E)*(E)te$
-138	S produces (E)/it+(E)/ite$
-139	S produces (E)/nt+(E)/nte$
-140	S produces (E)/(E)t+(E)/(E)te$
-141	S produces i-ie$
-142	S produces i*it-i*ite$
-143	S produces i*nt-i*nte$
-144	S produces i*(E)t-i*(E)te$
-145	S produces i/it-i/ite$
-146	S produces i/nt-i/nte$
-147	S produces i/(E)t-i/(E)te$
-148	S produces n-ne$
-149	S produces n*it-n*ite$
-150	S produces n*nt-n*nte$
-151	S produces n*(E)t-n*(E)te$
-152	S produces n/it-n/ite$
-153	S produces n/nt-n/nte$
-154	S produces n/(E)t-n/(E)te$
-155	S produces (E)-(E)e$
-156	S produces (E)*it-(E)*ite$
-157	S produces (E)*nt-(E)*nte$
-158	S produces (E)*(E)t-(E)*(E)te$
-159	S produces (E)/it-(E)/ite$
-160	S produces (E)/nt-(E)/nte$
-161	S produces (E)/(E)t-(E)/(E)te$
-162	S produces i$
-163	S produces i*it$
-164	S produces i*nt$
-165	S produces i*(E)t$
-166	S produces i/it$
-167	S produces i/nt$
-168	S produces i/(E)t$
-169	S produces n$
-170	S produces n*it$
-171	S produces n*nt$
-172	S produces n*(E)t$
-173	S produces n/it$
-174	S produces n/nt$
-175	S produces n/(E)t$
-176	S produces (E)$
-177	S produces (E)*it$
-178	S produces (E)*nt$
-179	S produces (E)*(E)t$
-180	S produces (E)/it$
-181	S produces (E)/nt$
-182	S produces (E)/(E)t$
+125	S produces i+ie$
+126	S produces i*it+i*ite$
+127	S produces i*nt+i*nte$
+128	S produces i*(E)t+i*(E)te$
+129	S produces i/it+i/ite$
+130	S produces i/nt+i/nte$
+131	S produces i/(E)t+i/(E)te$
+132	S produces n+ne$
+133	S produces n*it+n*ite$
+134	S produces n*nt+n*nte$
+135	S produces n*(E)t+n*(E)te$
+136	S produces n/it+n/ite$
+137	S produces n/nt+n/nte$
+138	S produces n/(E)t+n/(E)te$
+139	S produces (E)+(E)e$
+140	S produces (E)*it+(E)*ite$
+141	S produces (E)*nt+(E)*nte$
+142	S produces (E)*(E)t+(E)*(E)te$
+143	S produces (E)/it+(E)/ite$
+144	S produces (E)/nt+(E)/nte$
+145	S produces (E)/(E)t+(E)/(E)te$
+146	S produces i-ie$
+147	S produces i*it-i*ite$
+148	S produces i*nt-i*nte$
+149	S produces i*(E)t-i*(E)te$
+150	S produces i/it-i/ite$
+151	S produces i/nt-i/nte$
+152	S produces i/(E)t-i/(E)te$
+153	S produces n-ne$
+154	S produces n*it-n*ite$
+155	S produces n*nt-n*nte$
+156	S produces n*(E)t-n*(E)te$
+157	S produces n/it-n/ite$
+158	S produces n/nt-n/nte$
+159	S produces n/(E)t-n/(E)te$
+160	S produces (E)-(E)e$
+161	S produces (E)*it-(E)*ite$
+162	S produces (E)*nt-(E)*nte$
+163	S produces (E)*(E)t-(E)*(E)te$
+164	S produces (E)/it-(E)/ite$
+165	S produces (E)/nt-(E)/nte$
+166	S produces (E)/(E)t-(E)/(E)te$
+167	S produces i$
+168	S produces i*it$
+169	S produces i*nt$
+170	S produces i*(E)t$
+171	S produces i/it$
+172	S produces i/nt$
+173	S produces i/(E)t$
+174	S produces n$
+175	S produces n*it$
+176	S produces n*nt$
+177	S produces n*(E)t$
+178	S produces n/it$
+179	S produces n/nt$
+180	S produces n/(E)t$
+181	S produces (E)$
+182	S produces (E)*it$
+183	S produces (E)*nt$
+184	S produces (E)*(E)t$
+185	S produces (E)/it$
+186	S produces (E)/nt$
+187	S produces (E)/(E)t$
+188	S can be used to reduce others.
 
 	Iteration 6 using S
 
 	Iteration finished. No more changes.
-183	First set of $:$ 
-184	First set of i:i 
-185	First set of *:* 
-186	First set of n:n 
-187	First set of +:+ 
-188	First set of /:/ 
-189	First set of (:( 
-190	First set of ):) 
-191	First set of -:- 
-192	First set of @:@ 
-193	First set of F:i n ( 
-194	First set of t:* / @ 
-195	t is nullable.
-196	First set of e:+ - @ 
-197	e is nullable.
-198	First set of T:i n ( 
-199	First set of E:i n ( 
-200	First set of S:i n ( 
-201	Follow set of S:
-202	Follow set of T:+ - $ ) 
-203	Follow set of E:$ ) 
-204	Follow set of F:* / + - $ ) 
-205	Follow set of t:+ - $ ) 
-206	Follow set of e:$ ) 
+189	First set of $:$ 
+190	First set of i:i 
+191	First set of *:* 
+192	First set of /:/ 
+193	First set of +:+ 
+194	First set of -:- 
+195	First set of @:@ 
+196	First set of (:( 
+197	First set of ):) 
+198	First set of n:n 
+199	First set of F:i n ( 
+200	First set of t:* / @ 
+201	t is nullable.
+202	First set of e:+ - @ 
+203	e is nullable.
+204	First set of T:i n ( 
+205	First set of E:i n ( 
+206	First set of S:i n ( 
+207	Follow set of S:	
+208	Follow set of T:	+ - $ 
+209	Follow set of E:	) 
+210	Follow set of F:	* / + - $ 
+211	Follow set of t:	+ - $ 
+212	Follow set of e:	$ 
 
 
 	Final table:
-╒═══╤════╤═══╤═══╕
-│   │ $  │ i │ * │
-├───┼────┼───┼───┤
-│ S │    │ 2 │   │
-├───┼────┼───┼───┤
-│ T │    │ 3 │   │
-├───┼────┼───┼───┤
-│ E │    │ 4 │   │
-├───┼────┼───┼───┤
-│ F │    │ 5 │   │
-├───┼────┼───┼───┤
-│ t │ 12 │   │ 6 │
-├───┼────┼───┼───┤
-│ e │ 13 │   │   │
-╘═══╧════╧═══╧═══╛
+╒═══╤════╤═══╤═══╤════╕
+│   │ $  │ i │ * │ /  │
+├───┼────┼───┼───┼────┤
+│ S │    │ 2 │   │    │
+├───┼────┼───┼───┼────┤
+│ T │    │ 3 │   │    │
+├───┼────┼───┼───┼────┤
+│ E │    │ 4 │   │    │
+├───┼────┼───┼───┼────┤
+│ F │    │ 5 │   │    │
+├───┼────┼───┼───┼────┤
+│ t │ 11 │   │ 6 │ 10 │
+├───┼────┼───┼───┼────┤
+│ e │ 13 │   │   │    │
+╘═══╧════╧═══╧═══╧════╛
 
-╒═══╤═══╤════╤═══╕
-│   │ n │ +  │ / │
-├───┼───┼────┼───┤
-│ S │ 2 │    │   │
-├───┼───┼────┼───┤
-│ T │ 3 │    │   │
-├───┼───┼────┼───┤
-│ E │ 4 │    │   │
-├───┼───┼────┼───┤
-│ F │ 7 │    │   │
-├───┼───┼────┼───┤
-│ t │   │ 12 │ 9 │
-├───┼───┼────┼───┤
-│ e │   │ 8  │   │
-╘═══╧═══╧════╧═══╛
+╒═══╤════╤════╤════╤═══╕
+│   │ +  │ -  │ (  │ ) │
+├───┼────┼────┼────┼───┤
+│ S │    │    │ 2  │   │
+├───┼────┼────┼────┼───┤
+│ T │    │    │ 3  │   │
+├───┼────┼────┼────┼───┤
+│ E │    │    │ 4  │   │
+├───┼────┼────┼────┼───┤
+│ F │    │    │ 12 │   │
+├───┼────┼────┼────┼───┤
+│ t │ 11 │ 11 │    │   │
+├───┼────┼────┼────┼───┤
+│ e │ 8  │ 9  │    │   │
+╘═══╧════╧════╧════╧═══╛
 
-╒═══╤════╤════╤════╕
-│   │ (  │ )  │ -  │
-├───┼────┼────┼────┤
-│ S │ 2  │    │    │
-├───┼────┼────┼────┤
-│ T │ 3  │    │    │
-├───┼────┼────┼────┤
-│ E │ 4  │    │    │
-├───┼────┼────┼────┤
-│ F │ 10 │    │    │
-├───┼────┼────┼────┤
-│ t │    │ 12 │ 12 │
-├───┼────┼────┼────┤
-│ e │    │ 13 │ 11 │
-╘═══╧════╧════╧════╛
+╒═══╤═══╕
+│   │ n │
+├───┼───┤
+│ S │ 2 │
+├───┼───┤
+│ T │ 3 │
+├───┼───┤
+│ E │ 4 │
+├───┼───┤
+│ F │ 7 │
+├───┼───┤
+│ t │   │
+├───┼───┤
+│ e │   │
+╘═══╧═══╛
 
+213	 No conflict in table. Is LL(1) !

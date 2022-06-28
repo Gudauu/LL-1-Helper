@@ -1,20 +1,18 @@
-
-
-start S
-
+start E
 S > E
 T > Ft
 E > Te
 F > i
 t > *Ft
-F > n
-e > +Te
-t > /Ft
-F > (E)
+F> n
+e>+Te
 e > -Te
+t>/Ft
 t > @
-e > @
+F > (E)
+e >@
 
-{i,*,n,+,/,(,),-,@}
 
+
+{i,*,/,+,-,@,(,),n}
 
