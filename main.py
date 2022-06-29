@@ -103,7 +103,7 @@ class App(customtkinter.CTk):
         # ============ create two CTkFrames ============
 
         self.frame_left = customtkinter.CTkFrame(master=self,
-                                                 width=App.WIDTH*2/5, #200,
+                                                 width=App.WIDTH/2, #200,
                                                  height=App.HEIGHT-40,
                                                  corner_radius=20)
         self.frame_left.place(relx=0.3, rely=0.5, anchor=tkinter.E)
@@ -135,7 +135,7 @@ class App(customtkinter.CTk):
 
         
         self.input_text = scrolledtext.ScrolledText(master = self.frame_left,
-                                            width = 22, #int(App.WIDTH/2)-20, 
+                                            width = 38, #int(App.WIDTH/2)-20, 
                                             height = 20, #int(App.HEIGHT/2)-20,
                                             fg = (self.FONT_PALE_GREEN),
                                             bg = App.MAIN_GREY,
@@ -146,7 +146,7 @@ class App(customtkinter.CTk):
         
         
         self.input_text.place(relx=0.5, rely=0.11, anchor=tkinter.N)
-        self.input_text.config(font=(None, 30),state = 'disabled',highlightthickness = 0, borderwidth=0)
+        self.input_text.config(font=("Times New Roman", 28),state = 'disabled',highlightthickness = 0, borderwidth=0)
 
         self.button_1 = customtkinter.CTkButton(master=self.frame_left,
                                                 width=self.BUTTON_WIDTH,
@@ -201,7 +201,7 @@ class App(customtkinter.CTk):
         self.input_intro += self.break_line
 
         self.progress_text = scrolledtext.ScrolledText(master = self.frame_right,
-                                            width = 41, #int(App.WIDTH/2)-20, 
+                                            width = 45, #int(App.WIDTH/2)-20, 
                                             height = 24, #int(App.HEIGHT/2)-20,
                                             fg = "grey",
                                             bg = App.MAIN_GREY,
@@ -309,7 +309,7 @@ class App(customtkinter.CTk):
                     else:
                         self.rules[left].append((self.num_rules,right))
                         self.basic_rules[left].append((self.num_rules,right))
-                    new_result = str(self.num_rules)+"\t"+left+" produces "+right+"\n"
+                    new_result = str(self.num_rules)+"\t IF left is "+left+" THEN right produces "+right+"\n"
 
                     # update explanation data struction
                     self.explain_rules[self.num_rules] = [[-1]]
@@ -356,20 +356,20 @@ class App(customtkinter.CTk):
         new_result = None
         self.progress_text.configure(state='normal')
 
-        # left factoring happens when two productions of a non-terminal share the same prefix
+        # common prefix happens when two productions of a non-terminal share the same prefix
         for non_terminal in self.rules:
             productions = self.rules[non_terminal]
             for i in range(len(productions)):
                 for j in range(i+1,len(productions)):
                     if productions[j][1][0] == productions[i][1][0]:
                         self.num_rules += 1
-                        new_result = str(self.num_rules)+"\t Left factoring in rule: "+str(productions[i][0])+" and "+str(productions[j][0])+"\n"
+                        new_result = str(self.num_rules)+"\t Common prefix in rule: "+str(productions[i][0])+" and "+str(productions[j][0])+"\n"
                         self.explain_rules[self.num_rules] = [[productions[j][0]]]
-                        self.explain_rules[self.num_rules].append("Left factoring in rule "+str(productions[j][0])+".\n")
+                        self.explain_rules[self.num_rules].append("Common prefix in rule "+str(productions[j][0])+".\n")
                         self.num_rules += 1
                         new_result += str(self.num_rules)+"\t Not LL(1). Terminated.\n"
                         self.explain_rules[self.num_rules] = [[self.num_rules-1]]
-                        self.explain_rules[self.num_rules].append("Grammar with left left factoring is not LL(1).\n")
+                        self.explain_rules[self.num_rules].append("Grammar with common prefix is not LL(1).\n")
                         self.ofile.write(new_result)
                         self.progress_text.insert(tkinter.END, new_result)
                         self.IsLL1 = False
@@ -441,7 +441,7 @@ class App(customtkinter.CTk):
                                         if prod[1] == '@' and len(replaced_sub_right)>1:
                                             replaced_sub_right = replaced_sub_right.replace('@','')
                                         self.rules[sub_nt].append((self.num_rules,replaced_sub_right))
-                                        new_result = str(self.num_rules)+"\t"+sub_nt+" produces "+replaced_sub_right+"\n"
+                                        new_result = str(self.num_rules)+"\t IF left is "+sub_nt+" THEN right produces "+replaced_sub_right+"\n"
 
                                         self.explain_rules[self.num_rules] = [[temp_explain_sub_prod_num,prod[0]]]
                                         self.explain_rules[self.num_rules].append("Using rule "+str(prod[0])+" to reduce rule "+str(temp_explain_sub_prod_num)+".\n")
@@ -480,10 +480,10 @@ class App(customtkinter.CTk):
         # simply find all the right-hand-side starting terminal symbol for each non-terminal in rules already inferenced.
         with open("rules.txt",'r') as rulefile:
             for line in rulefile:
-                if line[0].isdigit() and ("produces" in line):
+                if line[0].isdigit() and ("produces" in line): # num IF left is A THEN right produces B
                     line_list = line.rstrip().split()
-                    nt = line_list[1]
-                    t = line_list[3][0]
+                    nt = line_list[4]
+                    t = line_list[8][0]
                     if t not in self.terminal_list:
                         continue
                     if nt not in self.first:
@@ -793,6 +793,9 @@ class App(customtkinter.CTk):
                 if flag_has_terminal:
                     self.show_intro("Terminal redefinition!\n\n")
                     return False
+                if not '@' in line:
+                    self.show_intro("Missing empty symbol in phrase!\n\n")
+                    return False
                 flag_has_terminal = True
             elif '>' in line:
                 if "{" in line or "}" in line or "$" in line:
@@ -882,7 +885,7 @@ class App(customtkinter.CTk):
         self.show_basic_rules()
 
 
-        # check left recursion and left factoring
+        # check left recursion and common prefix
         if not self.check_left_recursion() or (not self.check_left_factoring()):
             self.ofile.close()
             return 

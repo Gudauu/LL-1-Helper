@@ -1,16 +1,16 @@
-1	E is start symbol.
-2	S produces E
-3	T produces Ft
-4	E produces Te$
-5	F produces i
-6	t produces *Ft
-7	F produces n
-8	e produces +Te
-9	e produces -Te
-10	t produces /Ft
-11	t produces @
-12	F produces (E)
-13	e produces @
+1	S is start symbol.
+2	 IF left is S THEN right produces E$
+3	 IF left is T THEN right produces Ft
+4	 IF left is E THEN right produces Te
+5	 IF left is F THEN right produces i
+6	 IF left is t THEN right produces *Ft
+7	 IF left is F THEN right produces n
+8	 IF left is e THEN right produces +Te
+9	 IF left is e THEN right produces -Te
+10	 IF left is t THEN right produces /Ft
+11	 IF left is t THEN right produces @
+12	 IF left is F THEN right produces (E)
+13	 IF left is e THEN right produces @
 14	i is terminal.
 15	* is terminal.
 16	/ is terminal.
@@ -24,177 +24,177 @@
 24	F can be used to reduce others.
 
 	Iteration 1 using F
-25	T produces it
-26	T produces nt
-27	T produces (E)t
-28	t produces *it
-29	t produces *nt
-30	t produces *(E)t
-31	t produces /it
-32	t produces /nt
-33	t produces /(E)t
+25	 IF left is T THEN right produces it
+26	 IF left is T THEN right produces nt
+27	 IF left is T THEN right produces (E)t
+28	 IF left is t THEN right produces *it
+29	 IF left is t THEN right produces *nt
+30	 IF left is t THEN right produces *(E)t
+31	 IF left is t THEN right produces /it
+32	 IF left is t THEN right produces /nt
+33	 IF left is t THEN right produces /(E)t
 34	t can be used to reduce others.
 
 	Iteration 2 using t
-35	T produces i
-36	T produces i*it
-37	T produces i*nt
-38	T produces i*(E)t
-39	T produces i/it
-40	T produces i/nt
-41	T produces i/(E)t
-42	T produces n
-43	T produces n*it
-44	T produces n*nt
-45	T produces n*(E)t
-46	T produces n/it
-47	T produces n/nt
-48	T produces n/(E)t
-49	T produces (E)
-50	T produces (E)*it
-51	T produces (E)*nt
-52	T produces (E)*(E)t
-53	T produces (E)/it
-54	T produces (E)/nt
-55	T produces (E)/(E)t
+35	 IF left is T THEN right produces i
+36	 IF left is T THEN right produces i*it
+37	 IF left is T THEN right produces i*nt
+38	 IF left is T THEN right produces i*(E)t
+39	 IF left is T THEN right produces i/it
+40	 IF left is T THEN right produces i/nt
+41	 IF left is T THEN right produces i/(E)t
+42	 IF left is T THEN right produces n
+43	 IF left is T THEN right produces n*it
+44	 IF left is T THEN right produces n*nt
+45	 IF left is T THEN right produces n*(E)t
+46	 IF left is T THEN right produces n/it
+47	 IF left is T THEN right produces n/nt
+48	 IF left is T THEN right produces n/(E)t
+49	 IF left is T THEN right produces (E)
+50	 IF left is T THEN right produces (E)*it
+51	 IF left is T THEN right produces (E)*nt
+52	 IF left is T THEN right produces (E)*(E)t
+53	 IF left is T THEN right produces (E)/it
+54	 IF left is T THEN right produces (E)/nt
+55	 IF left is T THEN right produces (E)/(E)t
 56	e can be used to reduce others.
 
 	Iteration 3 using e
-57	E produces T+Te$
-58	E produces T-Te$
-59	E produces T$
+57	 IF left is E THEN right produces T+Te
+58	 IF left is E THEN right produces T-Te
+59	 IF left is E THEN right produces T
 60	T can be used to reduce others.
 
 	Iteration 4 using T
-61	E produces i+ie$
-62	E produces i*it+i*ite$
-63	E produces i*nt+i*nte$
-64	E produces i*(E)t+i*(E)te$
-65	E produces i/it+i/ite$
-66	E produces i/nt+i/nte$
-67	E produces i/(E)t+i/(E)te$
-68	E produces n+ne$
-69	E produces n*it+n*ite$
-70	E produces n*nt+n*nte$
-71	E produces n*(E)t+n*(E)te$
-72	E produces n/it+n/ite$
-73	E produces n/nt+n/nte$
-74	E produces n/(E)t+n/(E)te$
-75	E produces (E)+(E)e$
-76	E produces (E)*it+(E)*ite$
-77	E produces (E)*nt+(E)*nte$
-78	E produces (E)*(E)t+(E)*(E)te$
-79	E produces (E)/it+(E)/ite$
-80	E produces (E)/nt+(E)/nte$
-81	E produces (E)/(E)t+(E)/(E)te$
-82	E produces i-ie$
-83	E produces i*it-i*ite$
-84	E produces i*nt-i*nte$
-85	E produces i*(E)t-i*(E)te$
-86	E produces i/it-i/ite$
-87	E produces i/nt-i/nte$
-88	E produces i/(E)t-i/(E)te$
-89	E produces n-ne$
-90	E produces n*it-n*ite$
-91	E produces n*nt-n*nte$
-92	E produces n*(E)t-n*(E)te$
-93	E produces n/it-n/ite$
-94	E produces n/nt-n/nte$
-95	E produces n/(E)t-n/(E)te$
-96	E produces (E)-(E)e$
-97	E produces (E)*it-(E)*ite$
-98	E produces (E)*nt-(E)*nte$
-99	E produces (E)*(E)t-(E)*(E)te$
-100	E produces (E)/it-(E)/ite$
-101	E produces (E)/nt-(E)/nte$
-102	E produces (E)/(E)t-(E)/(E)te$
-103	E produces i$
-104	E produces i*it$
-105	E produces i*nt$
-106	E produces i*(E)t$
-107	E produces i/it$
-108	E produces i/nt$
-109	E produces i/(E)t$
-110	E produces n$
-111	E produces n*it$
-112	E produces n*nt$
-113	E produces n*(E)t$
-114	E produces n/it$
-115	E produces n/nt$
-116	E produces n/(E)t$
-117	E produces (E)$
-118	E produces (E)*it$
-119	E produces (E)*nt$
-120	E produces (E)*(E)t$
-121	E produces (E)/it$
-122	E produces (E)/nt$
-123	E produces (E)/(E)t$
+61	 IF left is E THEN right produces i+ie
+62	 IF left is E THEN right produces i*it+i*ite
+63	 IF left is E THEN right produces i*nt+i*nte
+64	 IF left is E THEN right produces i*(E)t+i*(E)te
+65	 IF left is E THEN right produces i/it+i/ite
+66	 IF left is E THEN right produces i/nt+i/nte
+67	 IF left is E THEN right produces i/(E)t+i/(E)te
+68	 IF left is E THEN right produces n+ne
+69	 IF left is E THEN right produces n*it+n*ite
+70	 IF left is E THEN right produces n*nt+n*nte
+71	 IF left is E THEN right produces n*(E)t+n*(E)te
+72	 IF left is E THEN right produces n/it+n/ite
+73	 IF left is E THEN right produces n/nt+n/nte
+74	 IF left is E THEN right produces n/(E)t+n/(E)te
+75	 IF left is E THEN right produces (E)+(E)e
+76	 IF left is E THEN right produces (E)*it+(E)*ite
+77	 IF left is E THEN right produces (E)*nt+(E)*nte
+78	 IF left is E THEN right produces (E)*(E)t+(E)*(E)te
+79	 IF left is E THEN right produces (E)/it+(E)/ite
+80	 IF left is E THEN right produces (E)/nt+(E)/nte
+81	 IF left is E THEN right produces (E)/(E)t+(E)/(E)te
+82	 IF left is E THEN right produces i-ie
+83	 IF left is E THEN right produces i*it-i*ite
+84	 IF left is E THEN right produces i*nt-i*nte
+85	 IF left is E THEN right produces i*(E)t-i*(E)te
+86	 IF left is E THEN right produces i/it-i/ite
+87	 IF left is E THEN right produces i/nt-i/nte
+88	 IF left is E THEN right produces i/(E)t-i/(E)te
+89	 IF left is E THEN right produces n-ne
+90	 IF left is E THEN right produces n*it-n*ite
+91	 IF left is E THEN right produces n*nt-n*nte
+92	 IF left is E THEN right produces n*(E)t-n*(E)te
+93	 IF left is E THEN right produces n/it-n/ite
+94	 IF left is E THEN right produces n/nt-n/nte
+95	 IF left is E THEN right produces n/(E)t-n/(E)te
+96	 IF left is E THEN right produces (E)-(E)e
+97	 IF left is E THEN right produces (E)*it-(E)*ite
+98	 IF left is E THEN right produces (E)*nt-(E)*nte
+99	 IF left is E THEN right produces (E)*(E)t-(E)*(E)te
+100	 IF left is E THEN right produces (E)/it-(E)/ite
+101	 IF left is E THEN right produces (E)/nt-(E)/nte
+102	 IF left is E THEN right produces (E)/(E)t-(E)/(E)te
+103	 IF left is E THEN right produces i
+104	 IF left is E THEN right produces i*it
+105	 IF left is E THEN right produces i*nt
+106	 IF left is E THEN right produces i*(E)t
+107	 IF left is E THEN right produces i/it
+108	 IF left is E THEN right produces i/nt
+109	 IF left is E THEN right produces i/(E)t
+110	 IF left is E THEN right produces n
+111	 IF left is E THEN right produces n*it
+112	 IF left is E THEN right produces n*nt
+113	 IF left is E THEN right produces n*(E)t
+114	 IF left is E THEN right produces n/it
+115	 IF left is E THEN right produces n/nt
+116	 IF left is E THEN right produces n/(E)t
+117	 IF left is E THEN right produces (E)
+118	 IF left is E THEN right produces (E)*it
+119	 IF left is E THEN right produces (E)*nt
+120	 IF left is E THEN right produces (E)*(E)t
+121	 IF left is E THEN right produces (E)/it
+122	 IF left is E THEN right produces (E)/nt
+123	 IF left is E THEN right produces (E)/(E)t
 124	E can be used to reduce others.
 
 	Iteration 5 using E
-125	S produces i+ie$
-126	S produces i*it+i*ite$
-127	S produces i*nt+i*nte$
-128	S produces i*(E)t+i*(E)te$
-129	S produces i/it+i/ite$
-130	S produces i/nt+i/nte$
-131	S produces i/(E)t+i/(E)te$
-132	S produces n+ne$
-133	S produces n*it+n*ite$
-134	S produces n*nt+n*nte$
-135	S produces n*(E)t+n*(E)te$
-136	S produces n/it+n/ite$
-137	S produces n/nt+n/nte$
-138	S produces n/(E)t+n/(E)te$
-139	S produces (E)+(E)e$
-140	S produces (E)*it+(E)*ite$
-141	S produces (E)*nt+(E)*nte$
-142	S produces (E)*(E)t+(E)*(E)te$
-143	S produces (E)/it+(E)/ite$
-144	S produces (E)/nt+(E)/nte$
-145	S produces (E)/(E)t+(E)/(E)te$
-146	S produces i-ie$
-147	S produces i*it-i*ite$
-148	S produces i*nt-i*nte$
-149	S produces i*(E)t-i*(E)te$
-150	S produces i/it-i/ite$
-151	S produces i/nt-i/nte$
-152	S produces i/(E)t-i/(E)te$
-153	S produces n-ne$
-154	S produces n*it-n*ite$
-155	S produces n*nt-n*nte$
-156	S produces n*(E)t-n*(E)te$
-157	S produces n/it-n/ite$
-158	S produces n/nt-n/nte$
-159	S produces n/(E)t-n/(E)te$
-160	S produces (E)-(E)e$
-161	S produces (E)*it-(E)*ite$
-162	S produces (E)*nt-(E)*nte$
-163	S produces (E)*(E)t-(E)*(E)te$
-164	S produces (E)/it-(E)/ite$
-165	S produces (E)/nt-(E)/nte$
-166	S produces (E)/(E)t-(E)/(E)te$
-167	S produces i$
-168	S produces i*it$
-169	S produces i*nt$
-170	S produces i*(E)t$
-171	S produces i/it$
-172	S produces i/nt$
-173	S produces i/(E)t$
-174	S produces n$
-175	S produces n*it$
-176	S produces n*nt$
-177	S produces n*(E)t$
-178	S produces n/it$
-179	S produces n/nt$
-180	S produces n/(E)t$
-181	S produces (E)$
-182	S produces (E)*it$
-183	S produces (E)*nt$
-184	S produces (E)*(E)t$
-185	S produces (E)/it$
-186	S produces (E)/nt$
-187	S produces (E)/(E)t$
+125	 IF left is S THEN right produces i+ie$
+126	 IF left is S THEN right produces i*it+i*ite$
+127	 IF left is S THEN right produces i*nt+i*nte$
+128	 IF left is S THEN right produces i*(E)t+i*(E)te$
+129	 IF left is S THEN right produces i/it+i/ite$
+130	 IF left is S THEN right produces i/nt+i/nte$
+131	 IF left is S THEN right produces i/(E)t+i/(E)te$
+132	 IF left is S THEN right produces n+ne$
+133	 IF left is S THEN right produces n*it+n*ite$
+134	 IF left is S THEN right produces n*nt+n*nte$
+135	 IF left is S THEN right produces n*(E)t+n*(E)te$
+136	 IF left is S THEN right produces n/it+n/ite$
+137	 IF left is S THEN right produces n/nt+n/nte$
+138	 IF left is S THEN right produces n/(E)t+n/(E)te$
+139	 IF left is S THEN right produces (E)+(E)e$
+140	 IF left is S THEN right produces (E)*it+(E)*ite$
+141	 IF left is S THEN right produces (E)*nt+(E)*nte$
+142	 IF left is S THEN right produces (E)*(E)t+(E)*(E)te$
+143	 IF left is S THEN right produces (E)/it+(E)/ite$
+144	 IF left is S THEN right produces (E)/nt+(E)/nte$
+145	 IF left is S THEN right produces (E)/(E)t+(E)/(E)te$
+146	 IF left is S THEN right produces i-ie$
+147	 IF left is S THEN right produces i*it-i*ite$
+148	 IF left is S THEN right produces i*nt-i*nte$
+149	 IF left is S THEN right produces i*(E)t-i*(E)te$
+150	 IF left is S THEN right produces i/it-i/ite$
+151	 IF left is S THEN right produces i/nt-i/nte$
+152	 IF left is S THEN right produces i/(E)t-i/(E)te$
+153	 IF left is S THEN right produces n-ne$
+154	 IF left is S THEN right produces n*it-n*ite$
+155	 IF left is S THEN right produces n*nt-n*nte$
+156	 IF left is S THEN right produces n*(E)t-n*(E)te$
+157	 IF left is S THEN right produces n/it-n/ite$
+158	 IF left is S THEN right produces n/nt-n/nte$
+159	 IF left is S THEN right produces n/(E)t-n/(E)te$
+160	 IF left is S THEN right produces (E)-(E)e$
+161	 IF left is S THEN right produces (E)*it-(E)*ite$
+162	 IF left is S THEN right produces (E)*nt-(E)*nte$
+163	 IF left is S THEN right produces (E)*(E)t-(E)*(E)te$
+164	 IF left is S THEN right produces (E)/it-(E)/ite$
+165	 IF left is S THEN right produces (E)/nt-(E)/nte$
+166	 IF left is S THEN right produces (E)/(E)t-(E)/(E)te$
+167	 IF left is S THEN right produces i$
+168	 IF left is S THEN right produces i*it$
+169	 IF left is S THEN right produces i*nt$
+170	 IF left is S THEN right produces i*(E)t$
+171	 IF left is S THEN right produces i/it$
+172	 IF left is S THEN right produces i/nt$
+173	 IF left is S THEN right produces i/(E)t$
+174	 IF left is S THEN right produces n$
+175	 IF left is S THEN right produces n*it$
+176	 IF left is S THEN right produces n*nt$
+177	 IF left is S THEN right produces n*(E)t$
+178	 IF left is S THEN right produces n/it$
+179	 IF left is S THEN right produces n/nt$
+180	 IF left is S THEN right produces n/(E)t$
+181	 IF left is S THEN right produces (E)$
+182	 IF left is S THEN right produces (E)*it$
+183	 IF left is S THEN right produces (E)*nt$
+184	 IF left is S THEN right produces (E)*(E)t$
+185	 IF left is S THEN right produces (E)/it$
+186	 IF left is S THEN right produces (E)/nt$
+187	 IF left is S THEN right produces (E)/(E)t$
 188	S can be used to reduce others.
 
 	Iteration 6 using S
@@ -219,11 +219,11 @@
 205	First set of E:i n ( 
 206	First set of S:i n ( 
 207	Follow set of S:	
-208	Follow set of T:	+ - $ 
-209	Follow set of E:	) 
-210	Follow set of F:	* / + - $ 
-211	Follow set of t:	+ - $ 
-212	Follow set of e:	$ 
+208	Follow set of T:	+ - $ ) 
+209	Follow set of E:	$ ) 
+210	Follow set of F:	* / + - $ ) 
+211	Follow set of t:	+ - $ ) 
+212	Follow set of e:	$ ) 
 
 
 	Final table:
@@ -243,21 +243,21 @@
 │ e │ 13 │   │   │    │
 ╘═══╧════╧═══╧═══╧════╛
 
-╒═══╤════╤════╤════╤═══╕
-│   │ +  │ -  │ (  │ ) │
-├───┼────┼────┼────┼───┤
-│ S │    │    │ 2  │   │
-├───┼────┼────┼────┼───┤
-│ T │    │    │ 3  │   │
-├───┼────┼────┼────┼───┤
-│ E │    │    │ 4  │   │
-├───┼────┼────┼────┼───┤
-│ F │    │    │ 12 │   │
-├───┼────┼────┼────┼───┤
-│ t │ 11 │ 11 │    │   │
-├───┼────┼────┼────┼───┤
-│ e │ 8  │ 9  │    │   │
-╘═══╧════╧════╧════╧═══╛
+╒═══╤════╤════╤════╤════╕
+│   │ +  │ -  │ (  │ )  │
+├───┼────┼────┼────┼────┤
+│ S │    │    │ 2  │    │
+├───┼────┼────┼────┼────┤
+│ T │    │    │ 3  │    │
+├───┼────┼────┼────┼────┤
+│ E │    │    │ 4  │    │
+├───┼────┼────┼────┼────┤
+│ F │    │    │ 12 │    │
+├───┼────┼────┼────┼────┤
+│ t │ 11 │ 11 │    │ 11 │
+├───┼────┼────┼────┼────┤
+│ e │ 8  │ 9  │    │ 13 │
+╘═══╧════╧════╧════╧════╛
 
 ╒═══╤═══╕
 │   │ n │
