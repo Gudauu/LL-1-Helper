@@ -21,7 +21,7 @@ During the above parsing process, if a grammar can be uniquely parsed by peeking
 A two-dimensional table derived from a LL grammar where each table entry (X,y) indicate the available rule to choose from for non-terminal symbol X on encountering terminal y.
 
 * LL grammar rule
-A common grammar rule is often in the form $A$ -> $\alpha$ where $\alpha$ is a combination of terminal and non-terminal. It indicates that if the current left-hand-side symbol is A, it can be replaced by $\alpha$.
+A common grammar rule is often in the form $A$ -> $a$ where $a$ is a combination of terminal and non-terminal. It indicates that if the current left-hand-side symbol is A, it can be replaced by $a$.
 
 * reduce
 The process of replacing non-terminals with the right-hand-side of their grammar rule, causing fewer non-terminals in the resulting production formula is called reduce. This step in primarily used in the inference section(see part)
